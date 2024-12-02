@@ -1,5 +1,5 @@
-with open('data.txt') as data_txt:
-    data = data_txt.read()
+with open('input.txt') as inp:
+    data = inp.read()
 
 reports = [[int(num) for num in line.split(" ")] for line in data.split("\n")]
 
