@@ -3,7 +3,7 @@ import re
 with open('input.txt') as inp:
     data = inp.read()
 
-correct = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)", tempslice)
+correct = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)", data)
 
 total = 0
 
