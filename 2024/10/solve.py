@@ -40,10 +40,10 @@ def count_trails(grid, pos, rating=False):
                 total += count_trails(grid, neighbor, rating)
     return total
 
-def linearize_coords(inp_list):
+def linearize_coords(grid, inp_list):
     out = []
     for coord in inp_list:
-        out.append(43 * coord[0] + coord[1])
+        out.append(len(grid[0]) * coord[0] + coord[1])
     return out
 
 field = [[int(x) for x in list(i)] for i in data.splitlines()]
@@ -52,7 +52,7 @@ total_score = 0
 total_rating = 0
 
 for idx in get_indices(data.replace("\n",""),"0"):
-    total_score += len(set(linearize_coords(count_trails(field, [idx // len(field[0]), idx % len(field[0])]))))
+    total_score += len(set(linearize_coords(field, count_trails(field, [idx // len(field[0]), idx % len(field[0])]))))
     total_rating += count_trails(field, [idx // len(field[0]), idx % len(field[0])], rating=True)
 
 print(total_score)
